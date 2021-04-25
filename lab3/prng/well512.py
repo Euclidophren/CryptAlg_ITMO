@@ -1,4 +1,7 @@
-class WELL512:
+from .base_well import BaseWELL
+
+
+class WELL512(BaseWELL):
     def __init__(self):
         self.w = 32
         self.r = 16

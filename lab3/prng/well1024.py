@@ -1,4 +1,7 @@
-class WELL1024:
+from .base_well import BaseWELL
+
+
+class WELL1024(BaseWELL):
     def __init__(self):
         self.w = 32
         self.r = 32
@@ -8,14 +11,6 @@ class WELL1024:
         self.fact = 2.32830643653869628906e-10
         self.state = [0] * self.r
         self.state_i = 0
-
-    @staticmethod
-    def mat_0_pos(t, v):
-        return v ^ (v >> t)
-
-    @staticmethod
-    def mat_0_neg(t, v):
-        return v ^ (v << (-t))
 
     def wellrng_1024_a(self, init):
         self.state_i = 0
