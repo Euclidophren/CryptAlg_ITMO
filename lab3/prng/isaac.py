@@ -60,8 +60,7 @@ class IsaacRandom(random.Random):
             init_state[0] += init_state[1]
             init_state[0] &= INT_MASK
 
-        super().seed(
-            0)  # give a chance for the superclass to reset its state - the actual seed given to it doesn't matter
+        super().seed(0)
         if seed is not None:
             if isinstance(seed, str):
                 seed = [ord(x) for x in seed]
@@ -117,8 +116,6 @@ class IsaacRandom(random.Random):
         _, self.aa, self.bb, self.cc, self.mm, self.rand_count, self.rand_result = state
 
     def _generate(self):
-        # Generate 256 random 32-bit values and save them in an internal field.
-        # The actual random functions will dish out these values to callers.
         self.cc = (self.cc + 1) & INT_MASK
         self.bb = (self.bb + self.cc) & INT_MASK
 

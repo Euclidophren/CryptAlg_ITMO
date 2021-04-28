@@ -18,7 +18,8 @@ class hc128:
         self.current_stream = 0
         self.current_in_stream = 0
 
-    def key_size(self):
+    @staticmethod
+    def key_size():
         """
         " Returns this stream cipher's key size in bytes. If the stream cipher
         " includes both a key and a nonce, <TT>keySize()</TT> returns the size of
