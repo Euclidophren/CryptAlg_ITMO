@@ -4,21 +4,16 @@ from random import (
 )
 
 
-def fermat_test(test_num: int, test_count: int):
-    if test_num == 2:
-        return True
-
+def fermat_test(test_num, test_count):
     success_count = 0
-    if test_count <= test_num / 10:
-        test_count = test_num // 8
-    for i in range(0, test_count):
+    res = False
+    for i in range(test_count):
         a = randint(2, test_num - 1)
-        if (a ** (test_num - 1)) % test_num == 1:
+        if pow(a, test_num - 1, test_num) == 1:
             success_count += 1
-        else:
-            return False
     if success_count == test_count:
-        return True
+        res = True
+    return res
 
 
 def legendre(a, p):
